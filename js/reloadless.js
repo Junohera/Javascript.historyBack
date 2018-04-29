@@ -4,12 +4,12 @@ $(document).ready(function () {
 
     history.pushState(null, null, event.target.href);
 
-    $('article').load(event.target.href+' article>.content');
-    
+    $('body').load(event.target.href+' #wrapper');
+
     event.preventDefault();
   })
 
   $(window).on('popstate', function(event){
-    $('article').load(location.href+' article>.content');
+    $('body').load(location.href+' #wrapper');
   })
 });
