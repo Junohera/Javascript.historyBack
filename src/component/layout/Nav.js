@@ -1,79 +1,72 @@
-import React, {Component} from 'react';
+import React from 'react';
+import Icon from '../common/Icon';
 
-class Navigation extends Component {
+class Navigation extends React.Component {
    constructor(props) {
       super(props);
-      this.state = {
-         isToggleOn: props.isToggleOn,
-         slideCls: 'active'
-      };
-  
-      this.clickFix = this.clickFix.bind(this);
+      this.state = {toggleNav: false};
     }
-
-    clickFix() {
-       this.setState(state => ({
-          isToggleOn: !state.isToggleOn
-       }));
-    }
-
-    navSlideMenu() {
-       console.log(this.isToggleOn);
-    }
-
     
+    onClickToggle = () => {
+       this.setState({
+          toggleNav : !this.state.toggleNav
+       })
+    }
 
    render() {
+      const active = this.state.toggleNav ? 'active' : null;
+      const dashboardClass = `float_dashboard ${active}`;
+
+
+      const dashboardList = [{
+          index: 0,
+          viewText: 'Vue',
+          iconName: 'fa-vuejs',
+          category: 'fab',
+          style: {
+             color:'#42b983'
+          }
+        }, {
+          index: 1,
+          viewText: 'Angular',
+          iconName: 'fa-angular',
+          category: 'fab',
+          style: {
+             color:'#db0e36'
+          }
+        }, {
+          index: 2,
+          viewText: 'React',
+          iconName: 'fa-react',
+          category: 'fab',
+          style: {
+            color:'#67DAF9'
+         }
+        }];
+        
+      const dashboardItems = dashboardList.map(v => 
+         <li className="menuIcons" key={v.index.toString()}>
+            <Icon category={v.category} name={v.iconName} style={v.style} />
+            <span>{v.viewText}</span>
+         </li>
+      )
+
       return (
-         <div style={navWrap}>
+         <div className="navigation">
 
-            <a style={navTitle}>Juno Gallery</a>
+            <a className="title">Juno Gallery</a>
 
-            <button style={navFix} onClick={this.clickFix}>
-               Menu {this.state.isToggleOn ? 'ON' : 'OFF'}
+            <button onClick={this.onClickToggle} className="float_btn"> 
+               {this.state.toggleNav ? <Icon name="fa-times" /> : <Icon name="fa-bars" />} 
             </button>
 
-            <ul className={this.state.slideCls}>
-               <li>Vue</li>
-               <li>Angular</li>
-               <li>React</li>
+            <ul className={dashboardClass}>
+               {dashboardItems}
             </ul>
 
          </div>
       )
    }
 };
-
-const navWrap = {
-   borderColor: 'rgba(34,34,34,.05)',
-   backgroundColor: '#fff',
-   transition: 'all .35s',
-   fontFamily: 'Catamaran,Helvetica,Arial,sans-serif',
-   fontWeight: 200,
-   letterSpacing: '1px',
-   padding: '6px 12px',
-   height:'31px',
-   lineHeight:'31px'
-};
-
-const navTitle = {
-   textDecoration:'none',
-   color:'black',
-   textAlign:'center',
-   display:'block'
-}
-
-const navFix = {
-   position:'fixed',
-   top:5,
-   right:12,
-   fontSize: '12px',
-   padding: '8px 10px',
-   color: '#222',
-   cursor: 'pointer',
-   borderColor: 'rgba(0,0,0,.1)',
-   borderRadius: '.25rem',
-   backgroundColor: '#fff'
-}
 
 export default Navigation;

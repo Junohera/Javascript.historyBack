@@ -1,17 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import Nav from './component/layout/Nav';
+import Header from './component/layout/Header';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isToggleOn: true
-    };
-  }
   render() {
     return (
       <Fragment>
-        <Nav prop="isToggleOn" />
+        <Nav />
+        <Header />
       </Fragment> 
     );
   }
