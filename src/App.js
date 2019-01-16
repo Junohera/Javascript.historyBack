@@ -1,13 +1,23 @@
 import React, { Component, Fragment } from 'react';
 import Nav from './component/layout/Nav';
-import Header from './component/layout/Header';
+import Content from './component/layout/Content';
+import Footer from './component/layout/Footer';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isNav: true
+    };
+  }
+
   render() {
     return (
       <Fragment>
-        <Nav />
-        <Header />
+        {this.state.isNav && <Nav />}
+        <Content isNav={this.state.isNav}/>
+        <Footer/>
       </Fragment> 
     );
   }

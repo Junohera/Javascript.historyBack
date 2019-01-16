@@ -19,6 +19,13 @@ li {
   display:block;
 }
 
+.wrapper{
+  margin: 0 auto;
+}
+.wrapper .has-Nav{
+  margin-top:53px;
+}
+
 .navigation{
   background-color:#fff;
   height:41px;
@@ -26,13 +33,22 @@ li {
   position: relative;
   padding:6px 12px;
   text-align: center;
-  z-index: 10;
 }
 
 .navigation .title {
   font-weight:400;
   font-size:14px;
-  line-height:43px;
+  line-height:53px;
+  position: fixed;
+  width:100%;
+  height:53px;
+  margin: 0 auto;
+  z-index: 10;
+  left:0;
+  top:0;
+  background:white;
+  border-bottom: 1px solid #0000001f;
+  box-sizing: border-box;
 }
 
 .navigation .float_dashboard{
@@ -43,6 +59,7 @@ li {
   transition: 0.5s;
   padding-bottom: 40px;
   padding-left:20vw;
+  z-index: 9;
 }
 
 .navigation .float_dashboard.active{
@@ -71,13 +88,14 @@ li {
 
 .navigation .float_btn {
   background: #fff;
-  position: absolute;
+  position: fixed;
   right: 12px;
   top: 12px;
   width: 50px;
   height: 32px;
   border-radius: 5px;
   border: 1px solid lightgray;
+  z-index: 11;
 }
 
 .navigation .menuIcons{
