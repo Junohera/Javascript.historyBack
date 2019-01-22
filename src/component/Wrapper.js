@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 
 class Content extends React.Component {
    constructor(props) {
@@ -10,14 +11,14 @@ class Content extends React.Component {
 
    render() {
       const active = this.props.isNav ? 'has-Nav' : '';
-      const ContentClass = `wrapper ${active}`;
+      const mobile = this.props.isMobile ? 'mobile' : '';
+      const ContentClass = `wrapper ${active} ${mobile}`;
+
 
       return (
          <section className={ContentClass}>
             <Header />
-            <Header />
-            <Header />
-            <Header />
+            <Footer />
          </section>
       )
    }

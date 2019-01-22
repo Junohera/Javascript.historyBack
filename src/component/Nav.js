@@ -1,5 +1,6 @@
 import React from 'react';
-import Icon from '../common/Icon';
+import Icon from './common/Icon';
+
 
 class Navigation extends React.Component {
    constructor(props) {
@@ -14,10 +15,16 @@ class Navigation extends React.Component {
     }
 
    render() {
+
+      // REF: Navigation Class
+      const isNav = !this.props.isNav ? 'active' : null;
+      const navigation = `navigation ${isNav}`;
+
+      // REF: menuBtn Class
       const active = this.state.toggleNav ? 'active' : null;
       const dashboardClass = `float_dashboard ${active}`;
 
-
+      // REF: menuList Map
       const dashboardList = [{
           index: 0,
           viewText: 'Vue',
@@ -44,6 +51,7 @@ class Navigation extends React.Component {
          }
         }];
         
+      // REF: create component by menuList Map
       const dashboardItems = dashboardList.map(v => 
          <li className="menuIcons" key={v.index.toString()}>
             <Icon category={v.category} name={v.iconName} style={v.style} />
@@ -52,7 +60,7 @@ class Navigation extends React.Component {
       )
 
       return (
-         <div className="navigation">
+         <div className={navigation}>
 
             <a className="title">Juno Gallery</a>
 

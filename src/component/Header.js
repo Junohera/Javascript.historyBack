@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Gallery from './common/Masonry';
 class Header extends React.Component {
    // constructor(props) {
    //    super(props);
@@ -16,6 +16,7 @@ class Header extends React.Component {
             <h5>
             New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!
             </h5>            
+            <Gallery></Gallery>
          </section>
       )
    }
