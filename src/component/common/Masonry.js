@@ -25,7 +25,7 @@ class Maso extends React.Component {
         const childElements = elementList.map(function(v){
            return (
                 <li className="image-element-class" key={v.index.toString()}>
-                    <img src="./static/media/bg-cta.36ddbb2d.jpg" />
+                    <img src="./static/media/bg-cta.jpg" />
                 </li>
             );
         });
