@@ -16,7 +16,7 @@ class Header extends React.Component {
             <h5>
             New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!
             </h5>            
-            <Gallery></Gallery>
+            <Gallery />
          </section>
       )
    }

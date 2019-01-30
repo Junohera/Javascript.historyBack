@@ -22,12 +22,6 @@ class App extends Component {
     };
   }
 
-  scrollCheck = () => {
-    this.setState({
-      isNav: scroll.isRemove()
-    })
-  }
-  
   componentDidMount() {
     window.addEventListener('scroll', this.scrollCheck);
   }
@@ -41,7 +35,7 @@ class App extends Component {
       isNav: scroll.isRemove()
     })
   }
-
+  
   render() {
     return ( 
       <Fragment >
